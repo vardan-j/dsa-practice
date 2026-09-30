@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node* insertAtBeginning(struct Node* head, int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    if (head == NULL) {
+        newNode->next = newNode;
+        return newNode;
+    
+    struct Node* temp = head;
+    while (temp->next != head) {
+        temp = temp->next;
+    }
+    newNode->next = head;
+    temp->next = newNode;
+    return newNode;
+}   
