@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+void display(struct Node* head) {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    struct Node* temp = head;
+    printf("Circular Linked List: ");
+    do
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+    printf("(Head: %d)\n", head->data);
+}
