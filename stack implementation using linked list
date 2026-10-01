@@ -5,13 +5,13 @@ struct Node {
     struct Node* next;
 };
 struct Node* top = NULL;
-void push(int value) {
+void push(int item) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
         printf("Stack Overflow\n");
         return;
     }
-    newNode->data = value;
+    newNode->data = item;
     newNode->next = top;
     top = newNode;
     printf("%d pushed into stack\n", value);
