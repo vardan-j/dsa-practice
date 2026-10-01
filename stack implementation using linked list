@@ -46,7 +46,7 @@ void display() {
     }
     printf("\n");
 }
-int main() {
+void main() {
     push(10);
     push(20);
     push(30);
@@ -56,5 +56,4 @@ int main() {
     display();
     pop();
     display();
-    return 0;
 }
