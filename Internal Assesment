@@ -1,0 +1,102 @@
+#include <stdio.h>
+#define MAX 100
+int a[MAX], n;
+// Function to traverse the array
+void traversal()
+{
+    int i;
+    if (n == 0)
+    {
+        printf("Array is empty.\n");
+        return;
+    }
+    printf("Array elements: ");
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+}
+void insertion()
+{
+    int pos, value, i;
+    if (n == MAX)
+    {
+        printf("Array is full.\n");
+        return;
+    }
+    printf("Enter position (1 to %d): ", n + 1);
+    scanf("%d", &pos);
+    if (pos < 1 || pos > n + 1)
+    {
+        printf("Invalid position.\n");
+        return;
+    }
+    printf("Enter value: ");
+    scanf("%d", &value);
+    for (i = n; i >= pos; i--)
+        a[i] = a[i - 1];
+    a[pos - 1] = value;
+    n++;
+    printf("Element inserted successfully.\n");
+}
+void deletion()
+{
+    int pos, i;
+
+    if (n == 0)
+    {
+        printf("Array is empty.\n");
+        return;
+    }
+    printf("Enter position (1 to %d): ", n);
+    scanf("%d", &pos);
+    if (pos < 1 || pos > n)
+    {
+        printf("Invalid position.\n");
+        return;
+    }
+    for (i = pos - 1; i < n - 1; i++)
+        a[i] = a[i + 1];
+    n--;
+    printf("Element deleted successfully.\n");
+}
+int main()
+{
+    int i, choice;
+    printf("Enter number of elements (0 to %d): ", MAX);
+    scanf("%d", &n);
+    if (n < 0 || n > MAX)
+    {
+        printf("Invalid array size.\n");
+        return 1;
+    }
+    printf("Enter array elements: ");
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+    do
+    {
+        printf("\n--- ARRAY OPERATIONS ---\n");
+        printf("1. Traversal\n");
+        printf("2. Insertion\n");
+        printf("3. Deletion\n");
+        printf("4. Linear Search\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+            case 1:
+                traversal();
+                break;
+            case 2:
+                insertion();
+                break;
+            case 3:
+                deletion();
+                break;
+            default:
+                printf("Invalid choice.\n");
+        }
+    } while (choice != 3);
+    return 0;
+}
+
